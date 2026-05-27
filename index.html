@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Council Event Portal</title>
+</head>
+<body>
+    <!-- Navigation Section -->
+    <header>
+        <h1>City Council Event Portal</h1>
+        <hr>
+    </header>
+    <!-- Exercise 2: Navigation -->
+    <nav>
+        <a href="#welcomeBanner">Home</a> | 
+        <a href="#events">Events</a> | 
+        <a href="#register">Register</a> | 
+        <!-- Exercise 2: Link to external help document target="_blank" -->
+        <a href="help.html" target="_blank">Help Center</a>
+    </nav>
+    <hr>
+    <!-- Main Content Section -->
+    <main>
+        <!-- Exercise 3: Welcome Message with ID (Styled with pure HTML mark and strong tags instead of CSS) -->
+        <div id="welcomeBanner">
+            Welcome, Logged-in Resident! 
+            <!-- Inline emphasis using strong tag for special offer -->
+            <strong>(SPECIAL OFFER: Sign up today!)</strong>
+        </div>
+        <!-- Exercise 4: Image Gallery for Community Events in a 2x3 Table -->
+        <section id="events">
+            <h2>Community Events</h2>
+            <p>Here is a gallery of our events. <mark class="highlight">Double click an image to enlarge it!</mark></p>
+            
+            <table border="1">
+                <caption>Past Events Gallery</caption>
+                <!-- Row 1 -->
+                <tr>
+                    <td>
+                        <img class="img-bordered" 
+                             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'><rect width='100%25' height='100%25' fill='red'/><text x='50%25' y='55%25' font-family='sans-serif' font-size='12' fill='white' font-weight='bold' text-anchor='middle'>Art Workshop</text></svg>" 
+                             alt="Art Workshop" 
+                             title="Art Workshop" 
+                             width="150"
+                             height="100"
+                             ondblclick="enlargeImage(this)">
+                        <p>Art Workshop</p>
+                    </td>
+                    <td>
+                        <img class="img-bordered" 
+                             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'><rect width='100%25' height='100%25' fill='purple'/><text x='50%25' y='55%25' font-family='sans-serif' font-size='12' fill='white' font-weight='bold' text-anchor='middle'>Music Festival</text></svg>" 
+                             alt="Music Festival" 
+                             title="Music Festival" 
+                             width="150"
+                             height="100"
+                             ondblclick="enlargeImage(this)">
+                        <p>Music Festival</p>
+                    </td>
+                    <td>
+                        <img class="img-bordered" 
+                             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'><rect width='100%25' height='100%25' fill='green'/><text x='50%25' y='55%25' font-family='sans-serif' font-size='12' fill='white' font-weight='bold' text-anchor='middle'>Farmers Market</text></svg>" 
+                             alt="Farmers Market" 
+                             title="Farmers Market" 
+                             width="150"
+                             height="100"
+                             ondblclick="enlargeImage(this)">
+                        <p>Farmers Market</p>
+                    </td>
+                </tr>
+                <!-- Row 2 -->
+                <tr>
+                    <td>
+                        <img class="img-bordered" 
+                             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'><rect width='100%25' height='100%25' fill='blue'/><text x='50%25' y='55%25' font-family='sans-serif' font-size='12' fill='white' font-weight='bold' text-anchor='middle'>Sports Gala</text></svg>" 
+                             alt="Sports Gala" 
+                             title="Sports Gala" 
+                             width="150"
+                             height="100"
+                             ondblclick="enlargeImage(this)">
+                        <p>Sports Gala</p>
+                    </td>
+                    <td>
+                        <img class="img-bordered" 
+                             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'><rect width='100%25' height='100%25' fill='orange'/><text x='50%25' y='55%25' font-family='sans-serif' font-size='12' fill='white' font-weight='bold' text-anchor='middle'>Charity Drive</text></svg>" 
+                             alt="Charity Drive" 
+                             title="Charity Drive" 
+                             width="150"
+                             height="100"
+                             ondblclick="enlargeImage(this)">
+                        <p>Charity Drive</p>
+                    </td>
+                    <td>
+                        <img class="img-bordered" 
+                             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'><rect width='100%25' height='100%25' fill='teal'/><text x='50%25' y='55%25' font-family='sans-serif' font-size='12' fill='white' font-weight='bold' text-anchor='middle'>Tech Meetup</text></svg>" 
+                             alt="Tech Meetup" 
+                             title="Tech Meetup" 
+                             width="150"
+                             height="100"
+                             ondblclick="enlargeImage(this)">
+                        <p>Tech Meetup</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <hr>
+        <!-- Exercise 5: Event Registration Form -->
+        <section id="register">
+            <h2>Event Registration Form</h2>
+            
+            <form id="registrationForm" onsubmit="handleFormSubmit(event)">
+                
+                <div class="form-group">
+                    <label for="regName">Name *</label>
+                    <input type="text" id="regName" placeholder="Enter your name" required autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="regEmail">Email *</label>
+                    <input type="email" id="regEmail" placeholder="Enter your email" required>
+                </div>
+                <br>
+                <!-- Exercise 6: Phone with onblur validation -->
+                <div class="form-group">
+                    <label for="regPhone">Phone (blur to validate)</label>
+                    <input type="tel" id="regPhone" placeholder="123-456-7890" onblur="validatePhone(this)">
+                    <span id="phoneError"></span>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="regDate">Date *</label>
+                    <input type="date" id="regDate" required>
+                </div>
+                <br>
+                <!-- Exercise 6 & 8: Dropdown with onchange fee display and LocalStorage pre-select -->
+                <div class="form-group">
+                    <label for="eventType">Event Type *</label>
+                    <select id="eventType" required onchange="handleEventSelectChange(this)">
+                        <option value="" disabled selected>-- Select Event --</option>
+                        <option value="art">Art Workshop</option>
+                        <option value="music">Music Festival</option>
+                        <option value="market">Farmers Market</option>
+                        <option value="sports">Sports Gala</option>
+                        <option value="charity">Charity Drive</option>
+                        <option value="tech">Tech Meetup</option>
+                    </select>
+                    <br>
+                    <span id="eventFee">Fee: N/A</span>
+                </div>
+                <br>
+                <!-- Exercise 6: Message field counting characters -->
+                <div class="form-group">
+                    <label for="regMessage">Message</label>
+                    <textarea id="regMessage" rows="3" cols="40" placeholder="Write feedback here..." oninput="countCharacters(this)"></textarea>
+                    <div id="charCounter">Characters: 0</div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <!-- Exercise 6: onclick trigger submission confirmation -->
+                    <button type="submit" id="submitBtn">Register</button>
+                    <!-- Exercise 8: Clear storage preferences button -->
+                    <button type="button" onclick="clearPreferences()">Clear Preferences</button>
+                </div>
+                <!-- Exercise 5: output element showing confirmation messages -->
+                <output id="formOutput" style="display: none;"></output>
+            </form>
+        </section>
+        <hr>
+        <!-- Exercise 7: Video Invite with Media Events -->
+        <section id="videoSection">
+            <h2>Video Invitation</h2>
+            <!-- Video player -->
+            <video id="promoVideo" width="320" height="240" controls oncanplay="handleVideoReady()">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the HTML5 video tag.
+            </video>
+            <p id="videoStatus">Video status: Loading...</p>
+        </section>
+        <hr>
+        <!-- Exercise 9: Geolocation Event Mapping -->
+        <section id="geoSection">
+            <h2>Find Nearby Events</h2>
+            <button type="button" onclick="findNearbyEvents()">Find Nearby Events</button>
+            <p id="geoOutput">Coordinates will appear here.</p>
+        </section>
+        <hr>
+        <!-- Exercise 10: Debugging instructions for Chrome DevTools -->
+        <section>
+            <h3>Debugging Instructions</h3>
+            <p>Open the Console tab in DevTools (F12) to view logs, see values, and inspect errors.</p>
+        </section>
+    </main>
+    <hr>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2026 City Council Portal</p>
+    </footer>
+    <!-- Script Block -->
+    <script>
+        console.log("Page loaded. Script started.");
+        // ==========================================
+        // Exercise 8: Load preferences on reload
+        // ==========================================
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedEvent = localStorage.getItem('preferredEvent');
+            if (savedEvent) {
+                console.log("Loaded preference from localStorage:", savedEvent);
+                const selectElement = document.getElementById('eventType');
+                selectElement.value = savedEvent;
+                handleEventSelectChange(selectElement);
+            }
+        });
+        // ==========================================
+        // Exercise 6 & 8: Dropdown change fee & localStorage save
+        // ==========================================
+        function handleEventSelectChange(selectElement) {
+            const val = selectElement.value;
+            const feeSpan = document.getElementById('eventFee');
+            
+            let fee = "N/A";
+            if (val === "art") fee = "$10";
+            else if (val === "music") fee = "$25";
+            else if (val === "market") fee = "Free";
+            else if (val === "sports") fee = "$15";
+            else if (val === "charity") fee = "Donation";
+            else if (val === "tech") fee = "Free";
+            feeSpan.innerText = "Fee: " + fee;
+            // Save to localStorage
+            localStorage.setItem('preferredEvent', val);
+            // Save to sessionStorage
+            sessionStorage.setItem('sessionEvent', val);
+            console.log("Saved event preference:", val);
+        }
+        // Button to clear localStorage/sessionStorage
+        function clearPreferences() {
+            localStorage.removeItem('preferredEvent');
+            sessionStorage.removeItem('sessionEvent');
+            console.log("Preferences cleared from Storage.");
+            document.getElementById('eventType').selectedIndex = 0;
+            document.getElementById('eventFee').innerText = "Fee: N/A";
+            alert("Preferences cleared!");
+        }
+        // ==========================================
+        // Exercise 6: onblur phone validation
+        // ==========================================
+        function validatePhone(input) {
+            const phone = input.value.trim();
+            const errSpan = document.getElementById('phoneError');
+            
+            if (phone === "") {
+                errSpan.innerText = "";
+                return;
+            }
+            // Valid pattern: 123-456-7890
+            const pattern = /^\d{3}-\d{3}-\d{4}$/;
+            if (pattern.test(phone)) {
+                errSpan.innerText = " (Valid Phone!)";
+                console.log("Phone number is valid");
+            } else {
+                errSpan.innerText = " (Error: Invalid phone format, use 123-456-7890)";
+                console.log("Phone number is invalid");
+            }
+        }
+        // ==========================================
+        // Exercise 6: Count characters in textarea
+        // ==========================================
+        function countCharacters(textarea) {
+            const len = textarea.value.length;
+            document.getElementById('charCounter').innerText = "Characters: " + len;
+            console.log("Character typed. Count: " + len);
+        }
+        // ==========================================
+        // Exercise 6: Double click to enlarge image (toggles DOM width/height properties)
+        // ==========================================
+        function enlargeImage(imgElement) {
+            console.log("Double clicked to enlarge image:", imgElement.alt);
+            if (imgElement.width === 300) {
+                imgElement.width = 150;
+                imgElement.height = 100;
+            } else {
+                imgElement.width = 300;
+                imgElement.height = 200;
+            }
+        }
+        // ==========================================
+        // Exercise 7: Video media ready event
+        // ==========================================
+        function handleVideoReady() {
+            document.getElementById('videoStatus').innerText = "Video status: Ready to play!";
+            console.log("Video is ready to play (canplay event).");
+        }
+        // Exercise 7: Warn user if trying to leave unfinished form page
+        window.onbeforeunload = function(e) {
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            if (name || email) {
+                e.preventDefault();
+                e.returnValue = "Unsaved registration. Leave?";
+                return "Unsaved registration. Leave?";
+            }
+        };
+        // ==========================================
+        // Exercise 5: Form submission confirmation
+        // ==========================================
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('regName').value;
+            const selectEl = document.getElementById('eventType');
+            const eventName = selectEl.options[selectEl.selectedIndex].text;
+            
+            // Show Output confirmation message
+            const output = document.getElementById('formOutput');
+            output.style.display = "block";
+            output.innerText = "Registration complete! " + name + " is registered for " + eventName + ".";
+            
+            console.log("Form successfully submitted. Output displayed.");
+        }
+        // ==========================================
+        // Exercise 9: Geolocation
+        // ==========================================
+        function findNearbyEvents() {
+            const out = document.getElementById('geoOutput');
+            out.innerText = "Searching for location...";
+            
+            const geoOptions = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            };
+            if (!navigator.geolocation) {
+                out.innerText = "Error: Geolocation not supported by this browser.";
+                return;
+            }
+            navigator.geolocation.getCurrentPosition(success, fail, geoOptions);
+            function success(position) {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                out.innerHTML = "Success!<br>Latitude: " + lat + "<br>Longitude: " + lon;
+                console.log("Location coordinates obtained:", lat, lon);
+            }
+            function fail(err) {
+                let msg = "";
+                if (err.code === err.PERMISSION_DENIED) {
+                    msg = "Permission denied.";
+                } else if (err.code === err.TIMEOUT) {
+                    msg = "Request timed out.";
+                } else {
+                    msg = "Location unavailable.";
+                }
+                out.innerText = "Error: " + msg;
+                console.log("Location access failed:", msg);
+            }
+        }
+    </script>
+</body>
+</html>
